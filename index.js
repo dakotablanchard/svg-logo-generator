@@ -5,7 +5,7 @@
 
 const fs = require('fs');
 const inq = require("inquirer");
-const shapes = require('./lib/shapes')
+const generateSvg = require('./lib/shapes')
 
 // Array of questions for user input
 const questions = [
@@ -42,5 +42,6 @@ const questions = [
 inq
     .prompt(questions)
     .then((data) => {
-        console.log(data.text.length)
+        console.log(data.text)
+        fs.writeFileSync(`./examples/${data.text}.svg`, generateSvg(data))
     })
