@@ -11,8 +11,15 @@ const shapes = require('./lib/shapes')
 const questions = [
     {
         type: 'input',
-        message: 'Enter 3 characters',
-        name: 'text'
+        message: 'Enter up to 3 characters',
+        name: 'text',
+        validate: (name) => {
+            if (name.length > 3) {
+                return 'Only 3 characters allowed'
+            }
+
+            return true
+        }
     },
     {
         type: 'input',
@@ -31,3 +38,9 @@ const questions = [
         name: 'shapeColor'
     }
 ];
+
+inq
+    .prompt(questions)
+    .then((data) => {
+        console.log(data.text.length)
+    })
