@@ -43,8 +43,8 @@ function init() {
     inq
         .prompt(questions)
         .then((data) => {
-            console.log(typeof data)
-            fs.writeFileSync(`./examples/${data.text}.svg`, generateSvg(data));
+            console.log(data)
+            //fs.writeFileSync(`./examples/${data.text}.svg`, generateSvg(data));
         })
 }
 
