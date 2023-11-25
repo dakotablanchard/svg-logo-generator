@@ -29,7 +29,7 @@ const questions = [
     {
         type: 'list',
         message: 'Select a shape',
-        choices: ['Circle', 'Triangle', 'Square'],
+        choices: ['circle', 'triangle', 'square'],
         name: 'shape'
     },
     {
@@ -39,9 +39,13 @@ const questions = [
     }
 ];
 
-inq
-    .prompt(questions)
-    .then((data) => {
-        console.log(data.text)
-        fs.writeFileSync(`./examples/${data.text}.svg`, generateSvg(data))
-    })
+function init() {
+    inq
+        .prompt(questions)
+        .then((data) => {
+            console.log(typeof data)
+            fs.writeFileSync(`./examples/${data.text}.svg`, generateSvg(data));
+        })
+}
+
+init()
