@@ -45,6 +45,7 @@ function init() {
         .then((data) => {
             fs.writeFileSync(`./examples/${data.text}.svg`, generateSvg(data));
         })
+        .then(() => console.log('Your SVG has been generated!'))
 }
 
 init()
