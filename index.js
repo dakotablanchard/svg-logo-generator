@@ -1,7 +1,3 @@
-// init function runs prompts and writes file
-// prompts function that uses an array of questions
-// shapes.js will include templates for each shape
-// render function that takes input from promts and adds it to svg format
 
 const fs = require('fs');
 const inq = require("inquirer");
@@ -43,7 +39,7 @@ function init() {
     inq
         .prompt(questions)
         .then((data) => {
-            fs.writeFileSync(`./examples/${data.text}.svg`, generateSvg(data));
+            fs.writeFileSync(`./results/${data.text}.svg`, generateSvg(data));
         })
         .then(() => console.log('Your SVG has been generated!'))
 }
