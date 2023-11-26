@@ -1,6 +1,8 @@
-
+// Importing required packages
 const fs = require('fs');
 const inq = require("inquirer");
+
+// Importing function from shapes.js
 const generateSvg = require('./lib/shapes')
 
 // Array of questions for user input
@@ -35,6 +37,11 @@ const questions = [
     }
 ];
 
+// Function that initializes the program
+// // Uses inquirer to prompt the user questions from the questions array
+// // Takes user input (data) and writes a new SVG file based off the text the user entered
+// // SVG file content is generated using the generateSvg() function imported from shapes.js
+// // Tells the user that their SVG is finished once the file has been created
 function init() {
     inq
         .prompt(questions)
@@ -44,4 +51,5 @@ function init() {
         .then(() => console.log('Your SVG has been generated!'))
 }
 
+// Calling above function
 init()
